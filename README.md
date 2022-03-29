@@ -1,13 +1,6 @@
 # DigiYouth II - Big Data and Artificial Intelligence Project - Team 2
 
-This project is part of the DigiYouth II – ReGeneration Academy on Big Data & Artificial Intelligence (powered by Microsoft).
-
-## Team Members
-
-Dimitrios Gougousis  
-Konstantinos Giokotos  
-Katerina Vouta  
-Anastasios Iliadis  
+This team project is part of the DigiYouth II – ReGeneration Academy on Big Data & Artificial Intelligence (powered by Microsoft). 
 
 ## Description
 
@@ -17,29 +10,28 @@ most useful features, train a model to accurately predict the prices of the list
 
 ## Dataset
 
-The dataset is provided in two files called listings.csv and reviews.csv.
+The dataset is provided in two file categories called listings.csv and reviews.csv.
 
-The first contains nominal information about the listings, like its neighbourhood, its description, amenities, bedrooms, bathrooms and more.
+The first contains nominal information about the listings, like its neighbourhood, its description, amenities, bedrooms, bathrooms etc. and is the one used to develop our model fro price prediction.
 
-The second file contains various ratings for the listings above in free text.
+The other file-group contains various ratings for the listings above in free text.
 
 ## Code Structure
 
 ### Notebooks
 
 The initial Exploratory Data Analysis and Modeling was done through notebooks which are stored in the notebooks folder. Through these notebooks we
-were able to identify the useful features of the dataset and tune the hyperparameters of the models.
+were able to identify the useful features of the dataset, prepare the data for training by preprocessing them and finally tune the hyperparameters of the models.
 
 ### Model
 
-The final trained model, with the best hyperparameters is stored in the models folder.
+The final trained model, with tuned hyperparameters, is stored in the models folder.
 
 ### Python Scripts
 
-The preprocessing step is included in the src folder and contains the functions that receive the initial dataset and turn it into a state that can be 
-used by the model.
+The preprocessing step is included in the src folder and contains the functions that process the original dataset, performing the necessary transformations to it, making it ready to be used by the model.
 
-Additionally, the server that uses the model to make the predictions of new users through FastAPI is contained in the src folder. A user can send a 
+Additionally, the server that uses the model to make the predictions for new establishments through FastAPI is contained in the src folder. A user can send a 
 post request to the server with the information of his listing and get a price estimation as result.
 
 ### Docker Files
@@ -74,6 +66,6 @@ If you want to deploy the model and use it to make predictions throught the API,
 ### Use the model on the dataset
 
 1. Load the dataset from 'listings.csv'.
-2. Process it by using the team2_preprocess function of preprocess.py.
+2. Process it by using the preprocess_dataset function of preprocess.py.
 3. Load the model.
 4. Use the model on the dataset as you see fit.
