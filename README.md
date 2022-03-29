@@ -1,4 +1,4 @@
-# DigiYouth II - Big Data and Artificial Intelligence Project - Team 2
+# DigiYouth II - Big Data and Artificial Intelligence Project
 
 This team project is part of the DigiYouth II – ReGeneration Academy on Big Data & Artificial Intelligence (powered by Microsoft). 
 
