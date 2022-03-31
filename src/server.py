@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import uvicorn
+import uvicorn, json
 from pydantic import BaseModel
 from joblib import load
 import pandas as pd
@@ -57,16 +57,24 @@ def health():
     return {'status': 'ready'}
 
 # This endpoint just shows the characteristics of the XGB Regression model.
-@app.get('/xgb_characteristics')
-def get_importances():
-    characteristics = {
+@app.get('/xgb_parameters')
+def get_parameters():
+    parameters = {
         'colsample_bytree' : xgb.colsample_bytree,
         'learning_rate' : xgb.learning_rate,
         'max_depth' : xgb.max_depth,
         'n_estimators' : xgb.n_estimators
         }   
     
-    return characteristics
+    return parameters
+
+# This endpoint shows the importances of all input features for the XGB Regression model.
+@app.get('/xgb_importances')
+def get_importances():
+    importances = {}
+    for n, imp in sorted(zip(xgb.get_booster().feature_names, xgb.feature_importances_), key = lambda x:x[1], reverse=True):
+        importances[n] = str(imp)
+    return importances
 
 # This is an endpoint that uses the model to make a prediction, but expects the input json in the form
 # {
