@@ -69,3 +69,6 @@ If you want to deploy the model and use it to make predictions throught the API,
 2. Process it by using the preprocess_dataset function of preprocess.py.
 3. Load the model.
 4. Use the model on the dataset as you see fit.
+
+### Using the API
+At this point the API only accepts data without preprocessing them. That means that in order to at least be able to process a request, the data must have the same length as the input of the model, i.e. 28 elements (key:value pairs in the json). An example showcasing the usage of the API in that manner is available in the "test_the_api" notebook in the folder src.
